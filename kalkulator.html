@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Belajar jQuery</title>
+    <script src="jquery-3.6.0.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#tombol").click(function () {
+          /* deklarasikan nilai yg akan diambil
+              konversi dengan fungsi parseInt supaya
+              berubah jadi angka
+           */
+          var a = parseInt($("#nilai1").val());
+          var b = parseInt($("#nilai2").val());
+          var operasi = $("#operasi").val();
+          var total = $("#hasil").val();
+
+          //buat validasi untuk memastikan nilai berupa angka
+          if (isNaN(a) || isNaN(b)) {
+            alert("isi form dengan angka!");
+          } else {
+            if (operasi == "+") {
+              $("#hasil").val(a + b);
+            } else {
+              if (operasi == "-") {
+                $("#hasil").val(a - b);
+              } else {
+                if (operasi == "*") {
+                  $("#hasil").val(a * b);
+                } else {
+                  if (operasi == "/") {
+                    $("#hasil").val(a / b);
+                  }
+                }
+              }
+            }
+          }
+          /* lengkapi kode disini supaya bisa
+         melakukan perkalian pembagian dan pengurangan
+      */
+        });
+      });
+    </script>
+    <style type="text/css">
+      body {
+        background-color: blanchedalmond;
+      }
+      .kalkulator{
+        padding: 10px;
+        padding-left: 40%;
+        position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kalkulator">
+    <table border="0">
+      <tr align="right"><td>
+          Nilai 1 :
+          <input type="text" id="nilai1" /></td></tr>
+          <tr align="right"><td>
+          Nilai 2 :
+          <input type="text" id="nilai2" /><br /></td></tr>
+          <tr align="right"><td>
+          Hasil      :
+          <input type="text" id="hasil" /><br /></td></tr>
+        </td>
+        <tr align="center"><td>
+        <select id="operasi">
+          <option value="+">Tambah</option>
+          <option value="*">Kali</option>
+          <option value="/">Bagi</option>
+          <option value="-">Kurang</option>
+        </select>
+        <button id="tombol">Hitung</button>
+      </td></tr>
+    </table>
+      </div>  
+  </body>
+</html>
